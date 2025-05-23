@@ -1,0 +1,6 @@
+{
+    "PROJECT": {
+        "install" : {
+            "directory" : "/path/to/some/dir"
+        }
+}
