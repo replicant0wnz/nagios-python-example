@@ -1,7 +1,0 @@
-someitem:
-  key1: value
-  key2: value
-  key3:
-    - list1
-    - list2
-    - list3

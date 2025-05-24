@@ -15,26 +15,24 @@ PYTHON_CONTAINER=public.ecr.aws/replicant0wnz/build-python:latest
 PYPI_USERNAME=__token__
 PYPI_PASSWORD=$(token)
 
+# Executable
+
+
+.PHONY: list
 list:
 	# List options of nothing specified
 	grep '^[^#[:space:]].*:' Makefile
 
+.PHONY: black
 black:
-	$(DOCKER_RUN) $(PYTHON_CONTAINER) black src/PROJECT/PROJECT.py
+	$(DOCKER_RUN) $(PYTHON_CONTAINER) black src/http_cluster/http_cluster.py
 
+.PHONY: test
 test:
 	$(DOCKER_RUN) $(PYTHON_CONTAINER) python -m pytest tests
 
-build:
-	$(DOCKER_RUN) -e BUILD_VERSION=$(version) $(PYTHON_CONTAINER) python -m build
+.PHONY: list
+install:
+	cp
 
-release_test:
-	$(DOCKER_RUN) -e TWINE_USERNAME=$(PYPI_USERNAME) -e TWINE_PASSWORD=$(PYPI_PASSWORD) $(PYTHON_CONTAINER) python -m twine upload --verbose --repository testpypi dist/*
-
-release:
-	$(DOCKER_RUN) -e TWINE_USERNAME=$(PYPI_USERNAME) -e TWINE_PASSWORD=$(PYPI_PASSWORD) $(PYTHON_CONTAINER) python -m twine upload --verbose dist/*
-
-clean:
-	rm -rf dist .pytest_cache src/*egg-info
-
-all: black test build
+all: black test install

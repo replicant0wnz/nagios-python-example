@@ -5,18 +5,18 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="PACKAGE",
+    name="http_cluster",
     version=os.environ['BUILD_VERSION'],
     author="Glenn E. Bailey III",
     author_email="glenn@dronemusic.co",
-    description="Description",
+    description="Example Nagios plugin",
     install_requires=[''],
     license_files=['LICENSE'],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/replicant0wnz/PROJECT",
+    url="https://github.com/replicant0wnz/nagios-python-example",
     project_urls={
-        "Bug Tracker": "https://github.com/replicant0wnz/PROJECT/issues",
+        "Bug Tracker": "https://github.com/replicant0wnz/nagios-python-example/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

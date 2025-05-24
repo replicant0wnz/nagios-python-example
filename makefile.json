@@ -1,6 +1,6 @@
 {
-    "PROJECT": {
+    "http_cluster": {
         "install" : {
-            "directory" : "/path/to/some/dir"
+            "directory" : "/usr/local/nagios/libexec"
         }
 }
