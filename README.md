@@ -1,14 +1,14 @@
-# PROJECT
-![](https://github.com/replicant0wnz/PROJECT/actions/workflows/release.yml/badge.svg)
-[![Releases](https://img.shields.io/github/v/release/replicant0wnz/PROJECT)](https://github.com/replicant0wnz/PROJECT/releases)
-[![Latest commit](https://img.shields.io/github/last-commit/replicant0wnz/PROJECT)](https://github.com/replicant0wnz/PROJECT/commits/main)
-[![LICENSE](https://img.shields.io/github/license/replicant0wnz/PROJECT)](https://github.com/replicant0wnz/PROJECT/blob/main/LICENSE)
+# nagios-python-example
+![](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/release.yml/badge.svg)
+[![Releases](https://img.shields.io/github/v/release/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/releases)
+[![Latest commit](https://img.shields.io/github/last-commit/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/commits/main)
+[![LICENSE](https://img.shields.io/github/license/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/blob/main/LICENSE)
 
 Some high level stuff here
 
 ## Description
 
-`PROJECT` is a thing that does things. The `yaml` configuration contains config data
+`nagios-python-example` is a thing that does things. The `yaml` configuration contains config data
 
 ## Requirements
 
