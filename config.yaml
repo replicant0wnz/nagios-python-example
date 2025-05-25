@@ -1,0 +1,9 @@
+http_servers:
+  config:
+    warn_threshold: 1
+    critical_threadhold: 2
+    protcol: "http"
+    timeout: 5
+  servers:
+    - "web1"
+    - "web2"
