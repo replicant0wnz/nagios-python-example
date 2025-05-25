@@ -27,7 +27,9 @@ While you can clone this entire repository the simpliest way to install it is vi
 single `wget` command on the Nagios server:
 
 ```bash
-sudo wget https://raw.githubusercontent.com/replicant0wnz/nagios-python-example/refs/heads/main/src/http_cluster/http_cluster.py -O /usr/local/nagios/libexec/check_http_cluster
+sudo wget \
+https://raw.githubusercontent.com/replicant0wnz/nagios-python-example/refs/heads/main/src/http_cluster/http_cluster.py \
+-O /usr/local/nagios/libexec/check_http_cluster
 ```
 
 ## Configuration example
