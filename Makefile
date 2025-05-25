@@ -12,6 +12,8 @@ DOCKER_RUN=$(DOCKER) run -u $(UID) -v $(SOURCE_PATH):$(WORKING_PATH) -w $(WORKIN
 # Python config
 PYTHON_CONTAINER=public.ecr.aws/replicant0wnz/build-python:latest
 
+HTTP_CLUSTER=src/http_cluster/http_cluster.py
+
 .PHONY: list
 list:
 	# List options of nothing specified
