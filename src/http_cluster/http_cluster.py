@@ -3,8 +3,6 @@
 import requests
 import yaml
 
-
-
 class HTTPCluster:
     """
     Simple class for Nagios to test a cluster of http servers.
@@ -20,7 +18,7 @@ class HTTPCluster:
 
     def _read_config(self):
         """
-        Reads the yaml config file
+        Reads the yaml config file and returns a list of servers
 
         Returns:
             config (dict)
@@ -35,27 +33,39 @@ class HTTPCluster:
         except yaml.YAMLError as e:
             raise e
 
-        config = config_yaml
+        config = config_yaml['http_servers']
 
-        return config
+        self.protcol = config['config']['protcol']
+        self.timeout = config['config']['timeout']
+        self.warn_threshold = config['config']['warn_threshold']
+        self.critical_threadhold = config['config']['critical_threadhold']
+        
 
-    def check_server(self, server=None, protocol="http", timeout=5, min_return_code=200, max_return_code=203):
+    def _check_server(self, server=None, protocol=None, timeout=None):
         """
         Performs http check 
 
         Return:
-            True: Recieve 2xx or 3xx code
+            True: Successful 200 connection
             False: Anything else
         """
 
         try:
             return_code = requests.get(f"{protocol}://{server}", timeout=timeout).status_code
-            print(return_code)
         except:
             return_code = 0
 
-        if return_code < max_return_code and return_code >= min_return_code:
+        if return_code == 200:
             return True
         else:
             return False
+
+
+    def execute(self):
+        """
+        Iterate through the config and perform the http checks
+        """
+       
+        config = self._read_config()
+
 
