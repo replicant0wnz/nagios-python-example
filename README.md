@@ -5,20 +5,29 @@
 [![LICENSE](https://img.shields.io/github/license/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/blob/main/LICENSE)
 [![main](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/main.yml/badge.svg)](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/main.yml)
 
-Some high level stuff here
+Simple Nagios plugin example writtin in Python
 
 ## Description
 
-`nagios-python-example` is a thing that does things. The `yaml` configuration contains config data
+`nagios-python-example` contains a simple Nagios plugin that performs a check
+against a list of http(s) servers. Both the `WARN` and `CRITICAL` are configurable.
+
+Each down server will be shown in the Nagios console.
 
 ## Requirements
 
-Some Python modules
+While most modern installations contain these modules the following are required:
+
+- `PyYAML`
+- `requests`
 
 ## Installation
 
+While you can clone this entire repository the simpliest way to install it is via a
+single `wget` command on the Nagios server:
+
 ```bash
-make install
+sudo wget https://raw.githubusercontent.com/replicant0wnz/nagios-python-example/refs/heads/main/src/http_cluster/http_cluster.py -O /usr/local/nagios/libexec/check_http_cluster
 ```
 
 ## Configuration example

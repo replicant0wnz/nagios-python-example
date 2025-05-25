@@ -3,7 +3,6 @@
 import requests
 import yaml
 
-
 class HTTPCluster:
     """
     Simple class to test a cluster of http servers.
@@ -57,7 +56,7 @@ class HTTPCluster:
 
     def execute_checks(self):
         """
-        Iterate through the config and perform the http checks
+        Perform the http checks
         """
 
         cluster_config = self._read_config()
