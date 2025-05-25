@@ -5,7 +5,7 @@ import yaml
 
 class HTTPCluster:
     """
-    Simple class for Nagios to test a cluster of http servers.
+    Simple class to test a cluster of http servers.
     """
 
     def __init__(self, config_file="config.yaml"):
@@ -18,13 +18,11 @@ class HTTPCluster:
 
     def _read_config(self):
         """
-        Reads the yaml config file and returns a list of servers
+        Reads the yaml config
 
         Returns:
             config (dict)
         """
-
-        config = {}
 
         f = open(self.config_file)
 
@@ -33,15 +31,9 @@ class HTTPCluster:
         except yaml.YAMLError as e:
             raise e
 
-        config = config_yaml['http_servers']
+        return config_yaml['http_servers']
 
-        self.protcol = config['config']['protcol']
-        self.timeout = config['config']['timeout']
-        self.warn_threshold = config['config']['warn_threshold']
-        self.critical_threadhold = config['config']['critical_threadhold']
-        
-
-    def _check_server(self, server=None, protocol=None, timeout=None):
+    def check_server(self, server=None, protocol=None, timeout=None):
         """
         Performs http check 
 
@@ -61,11 +53,38 @@ class HTTPCluster:
             return False
 
 
-    def execute(self):
+    def execute_checks(self):
         """
         Iterate through the config and perform the http checks
         """
        
-        config = self._read_config()
+        cluster_config = self._read_config()
+        config = cluster_config['config']
+        servers = cluster_config['servers']
 
+        threshold = 0
 
+        for server in servers:
+            x = self.check_server(server=server, protocol=config['protcol'], timeout=config['timeout'])
+            if x is False:
+                threshold += 1
+
+        if threshold == config['warn_threshold']:
+            nagios_message = "WARN"
+        elif threshold == config['critical_threadhold']:
+            nagios_message = "CRITIAL"
+        else:
+            nagios_message = "OK"
+
+        return nagios_message
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--config", help="Path to config", required=True)
+    args = parser.parse_args()
+
+    x = HTTPCluster(config_file=args.config)
+    result = x.execute_checks()
+    print(f"CLUSTER {result}")
