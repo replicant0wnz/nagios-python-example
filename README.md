@@ -3,6 +3,7 @@
 [![Releases](https://img.shields.io/github/v/release/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/releases)
 [![Latest commit](https://img.shields.io/github/last-commit/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/commits/main)
 [![LICENSE](https://img.shields.io/github/license/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/blob/main/LICENSE)
+[![main](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/main.yml/badge.svg)](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/main.yml)
 
 Some high level stuff here
 
