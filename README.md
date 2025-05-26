@@ -5,13 +5,13 @@
 [![LICENSE](https://img.shields.io/github/license/replicant0wnz/nagios-python-example)](https://github.com/replicant0wnz/nagios-python-example/blob/main/LICENSE)
 [![main](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/main.yml/badge.svg)](https://github.com/replicant0wnz/nagios-python-example/actions/workflows/main.yml)
 
-Simple Nagios plugin example writtin in Python
+Simple Nagios plugin example written in Python
 
 * [Description](#description)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Configuration](#configuration)
-   + [Example Nagios impimentation ](#example-nagios-impimentation)
+   + [Example Nagios implementation ](#example-nagios-impimentation)
 
 
 ## Description
@@ -30,7 +30,7 @@ While most modern installations contain these modules the following are required
 
 ## Installation
 
-While you can clone this entire repository the simpliest way to install it is via a
+While you can clone this entire repository the simplest way to install it is via a
 single `wget` command on the Nagios server:
 
 ```bash
@@ -56,7 +56,7 @@ http_servers:
     - "web2"
 ```
 
-### Example Nagios impimentation 
+### Example Nagios implementation 
 
 Add the following to the `commands.cfg`:
 
