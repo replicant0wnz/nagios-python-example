@@ -7,6 +7,13 @@
 
 Simple Nagios plugin example writtin in Python
 
+* [Description](#description)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Configuration](#configuration)
+   + [Example Nagios impimentation ](#example-nagios-impimentation)
+
+
 ## Description
 
 `nagios-python-example` contains a simple Nagios plugin that performs a check
