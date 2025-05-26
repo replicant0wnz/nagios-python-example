@@ -32,21 +32,43 @@ https://raw.githubusercontent.com/replicant0wnz/nagios-python-example/refs/heads
 -O /usr/local/nagios/libexec/check_http_cluster
 ```
 
-## Configuration example
+## Configuration
+
+Configuration is managed through a single yaml file, one which is contained in the repository Here
+is a breakdown of the keys:
 
 ```yaml
-someitem:
-  key1: value
-  key2: value
-  key3:
-    - list1
-    - list2
-    - list3
+http_servers:
+  config:
+    warn_threshold: 1 # How many servers down before issuing a WARN
+    critical_threadhold: 2 # How many servers down before issuing a CRITICAL
+    protcol: "http" # http or https
+    timeout: 5 # timeout in seconds
+  servers: # List of servers to monitor
+    - "web1"
+    - "web2"
 ```
 
-## Usage
+### Example Nagios impimentation 
 
-```bash
-ls -l 
-do some stuff
+Add the following to the `commands.cfg`:
+
+```
+define command {
+    command_name    check_http_cluster
+    command_line    $USER1$/check_http_cluster -c $ARG1$
+}
+```
+
+Create a "dummy" host in `templates.cfg` as we will not be associating with any single server:
+
+```
+define host {
+    name                            no-host
+    use                             generic-host
+    max_check_attempts              1
+    address                         127.0.0.1 
+    check_command                   check-host-alive
+    register                        0
+}
 ```
