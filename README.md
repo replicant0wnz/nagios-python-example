@@ -60,7 +60,7 @@ define command {
 }
 ```
 
-Create a "dummy" host in `templates.cfg` as we will not be associating with any single server:
+Create a "dummy" host in `templates.cfg` if we don't want to associate with an existing server:
 
 ```
 define host {
@@ -70,5 +70,21 @@ define host {
     address                         127.0.0.1 
     check_command                   check-host-alive
     register                        0
+}
+```
+
+Finally setup the service itself in whatever config you'd like:
+
+```
+define host {
+    use       no-host
+    host_name http-cluster
+}
+
+define service {
+    use                   generic-service
+    host_name             http-cluster 
+    service_description   CLUSTER 
+    check_command         check_http_cluster! path/to/config.yaml
 }
 ```
