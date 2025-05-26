@@ -3,6 +3,7 @@
 import requests
 import yaml
 
+
 class HTTPCluster:
     """
     Simple class to test a cluster of http servers.
