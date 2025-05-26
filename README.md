@@ -34,7 +34,7 @@ https://raw.githubusercontent.com/replicant0wnz/nagios-python-example/refs/heads
 
 ## Configuration
 
-Configuration is managed through a single yaml file, one which is contained in the repository Here
+Configuration is managed through a single yaml file, one which is contained in this repository. Here
 is a breakdown of the keys:
 
 ```yaml
